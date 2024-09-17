@@ -13,9 +13,31 @@
 #
 # import Python modules
 import math # math module
+import sys  # argv
 # "constants"
 R_E_KM = 6378.1363
 E_E = 0.081819221456
+
+
+# initialize script arguments
+lat_deg = float('nan') # LLH latitude in deg
+lon_deg = float('nan') # LLH longitude in deg
+hae_km = float('nan') # LLH height above ellipsoid in km
+
+# parse script arguments
+if len(sys.argv)==4:
+  lat_deg = float(sys.argv[1])
+  lon_deg = float(sys.argv[2])
+  hae_km = float(sys.argv[3])
+else:
+  print(\
+   'Usage: '\
+   'python3 llh_to_ecef.py lat_deg lon_deg hae_km'\
+  )
+  exit()
+
+
+
 
 
 # converting angles in deg to rad
